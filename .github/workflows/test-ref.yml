@@ -13,3 +13,7 @@ jobs:
         env:
           GITHUB_CTX: ${{toJson(github)}}
         run: echo "$GITHUB_CTX"
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
