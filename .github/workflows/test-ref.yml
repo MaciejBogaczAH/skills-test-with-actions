@@ -1,0 +1,15 @@
+name: Pull Request Cleanup
+
+on:
+  pull_request_target:
+    types:
+      - closed
+
+jobs:
+  print:
+    runs-on: ubuntu
+    steps:
+      - name: Dump context
+        env:
+          GITHUB_CTX: ${{toJson(github)}}
+        run: echo "$GITHUB_CTX"
